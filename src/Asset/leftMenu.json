@@ -1,0 +1,28 @@
+{
+    "options":[
+        {
+            "name":"Dashboard",
+            "redirectionLink":"/pincodes",
+            "position":1,
+            "isVisible":true
+        },
+        {
+            "name":"Product Profiles",
+            "redirectionLink":"/profile",
+            "position":1,
+            "isVisible":true
+        },
+        {
+            "name":"Pincodes",
+            "redirectionLink":"/profile",
+            "position":1,
+            "isVisible":true
+        },
+        {
+            "name":"Settings",
+            "redirectionLink":"/profile",
+            "position":1,
+            "isVisible":true
+        }
+    ]
+}

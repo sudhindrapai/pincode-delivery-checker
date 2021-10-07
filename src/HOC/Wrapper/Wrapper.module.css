@@ -16,6 +16,11 @@
 .Navigation{
     display: flex;
     flex-basis: 20%;
-    background-color: rebeccapurple;
-    height: calc(100vh - 51px);
+    background-color: white;
+    height: calc(100vh - 0px);
+    box-shadow: 0 0 12px rgb(0 0 0 / 16%);
+}
+.BodyContents{
+    width: 100%;
+    box-sizing: border-box;
 }

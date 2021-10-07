@@ -8,12 +8,12 @@ const AdminWrapper = (IncomingComponent) => {
     class NewComponent extends Component{
         render() {
             return <Fragment>
-                 <div className={classes.TopMenu}>TopMenu</div>
                  <div className={classes.Container} >
                  <div className={classes.Navigation}>
                       <SideBar/>
                      </div>
                      <div className={classes.BodyContents}>
+                     <div className={classes.TopMenu}>TopMenu</div>
                  <IncomingComponent />
                  </div>
                  </div>

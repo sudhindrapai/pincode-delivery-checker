@@ -2,7 +2,7 @@
     "options":[
         {
             "name":"Dashboard",
-            "redirectionLink":"/pincodes",
+            "redirectionLink":"/dashboard",
             "position":1,
             "isVisible":true
         },
@@ -14,13 +14,13 @@
         },
         {
             "name":"Pincodes",
-            "redirectionLink":"/profile",
+            "redirectionLink":"/pincode",
             "position":1,
             "isVisible":true
         },
         {
             "name":"Settings",
-            "redirectionLink":"/profile",
+            "redirectionLink":"/settings",
             "position":1,
             "isVisible":true
         }

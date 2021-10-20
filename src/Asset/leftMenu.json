@@ -3,24 +3,42 @@
         {
             "name":"Dashboard",
             "redirectionLink":"/dashboard",
+            "iconName": "CgSignal",
             "position":1,
             "isVisible":true
         },
         {
             "name":"Product Profiles",
             "redirectionLink":"/profile",
+            "iconName": "AiOutlineTag",
             "position":1,
             "isVisible":true
         },
         {
             "name":"Pincodes",
             "redirectionLink":"/pincode",
+            "iconName": "AiOutlineTag",
+            "position":1,
+            "isVisible":true
+        },
+        {
+            "name":"Designs",
+            "redirectionLink":"/pincode",
+            "iconName": "AiOutlineTag",
+            "position":1,
+            "isVisible":true
+        },
+        {
+            "name":"Weidget Position",
+            "redirectionLink":"/pincode",
+            "iconName": "AiOutlineTag",
             "position":1,
             "isVisible":true
         },
         {
             "name":"Settings",
             "redirectionLink":"/settings",
+            "iconName": "AiOutlineTag",
             "position":1,
             "isVisible":true
         }

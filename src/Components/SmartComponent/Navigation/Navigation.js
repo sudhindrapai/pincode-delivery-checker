@@ -1,7 +1,10 @@
 import {useMemo} from 'react'
 import classes from './Navigation.module.css';
 import {Link, NavLink} from 'react-router-dom'
+
 import components from '../../ComponentIndex/ComponentIndex';
+// import { CgSignalIcon } from "../../../ProjectIcons";
+import iconsObj from "../../../ProjectIcons";
 
 import menuResponse from '../../../Asset/leftMenu.json';
 
@@ -14,6 +17,7 @@ const Navigation = () => {
     useMemo(() => {
         menuOptions = responseArray.map((menuOption, index) => {
             return <div key={`menuItem_${index}`} className={classes.MenuItem}>
+                {iconsObj[menuOption.iconName]}
                 <NavLink to={menuOption.redirectionLink} activeClassName={classes.SelectedNav}>
                 {menuOption.name}
                 </NavLink>

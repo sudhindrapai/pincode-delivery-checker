@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import components from "../../Components/ComponentIndex/ComponentIndex";
 import classes from './Wrapper.module.css';
 
+
 const AdminWrapper = (IncomingComponent) => {
     let SideBar = components["LeftNavigation"];
 

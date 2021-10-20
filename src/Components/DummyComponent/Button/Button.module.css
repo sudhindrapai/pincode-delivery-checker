@@ -1,0 +1,36 @@
+.Btn{
+    font-size: 14px;
+    color: #000;
+    background-color: transparent;
+    border: 1px solid #080808;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.BtmSm{
+    font-size: 14px;
+    padding: 8px;
+}
+
+.BtnMd{
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.BtnGroupJustified{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 0;
+}
+
+.BtnPrimary{
+    background-color: #000;
+    color: #fff;
+}
+
+.BtnBorder{
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+}

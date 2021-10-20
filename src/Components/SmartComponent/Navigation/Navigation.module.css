@@ -8,8 +8,6 @@
     margin-bottom: 10px;
 }
 
-
-
 .MenuItem a{
     text-decoration: unset;
     color: #000;
@@ -36,6 +34,7 @@
     background-color: #808080;
 }
 .SelectedNav{
-    color: #fff !important;
+    color: #4ac2a2 !important;
+    font-weight: 700;
 }
 

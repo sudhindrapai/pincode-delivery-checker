@@ -24,3 +24,9 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+.BodySection{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 15px 30px 50px;
+}

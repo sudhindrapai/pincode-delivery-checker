@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import { getStorage, ref } from "firebase/storage";
+
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -33,5 +35,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
+// auth ref goes here
   export const auth = getAuth(app);
+
+  //  storage ref goes here
+  export const storage = getStorage(app);
+  export const storageRef = ref(storage);
+  export const imagesRef = ref(storageRef, 'images');
+
+
   export default app

@@ -8,36 +8,15 @@
             "isVisible":true
         },
         {
-            "name":"Product Profiles",
+            "name":"Invoce List",
             "redirectionLink":"/profile",
             "iconName": "AiOutlineTag",
             "position":1,
             "isVisible":true
         },
         {
-            "name":"Pincodes",
-            "redirectionLink":"/pincode",
-            "iconName": "AiOutlineTag",
-            "position":1,
-            "isVisible":true
-        },
-        {
-            "name":"Designs",
-            "redirectionLink":"/pincode",
-            "iconName": "AiOutlineTag",
-            "position":1,
-            "isVisible":true
-        },
-        {
-            "name":"Weidget Position",
-            "redirectionLink":"/pincode",
-            "iconName": "AiOutlineTag",
-            "position":1,
-            "isVisible":true
-        },
-        {
-            "name":"Settings",
-            "redirectionLink":"/settings",
+            "name":"Create Invoice",
+            "redirectionLink":"/create/invoice",
             "iconName": "AiOutlineTag",
             "position":1,
             "isVisible":true

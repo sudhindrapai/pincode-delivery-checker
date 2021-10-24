@@ -1,0 +1,128 @@
+.BillLIneItem{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.Container{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FormContainer{
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 80%;
+    border: 1px solid var(--color-border);
+    padding: 30px;
+    border-radius: 10px;
+}
+.TwoInputs{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.TwoInputs .FormGroup{
+    max-width: 50%;
+}
+
+.TwoInputs .FormGroup:first-child{
+    padding-right: 20px;
+}
+
+.FormGroup{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: start;
+    margin-bottom: 15px;
+}
+
+.FormGroup label{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.FormGroup input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+}
+
+.FormGroup textarea{
+    height: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+}
+
+.Error{
+    font-size: 10px;
+    min-height: 10px;
+}
+
+.ColRed{
+    color: var(--color-error);
+}
+
+.Warning{
+    color: var(--color-warning);
+}
+
+.ServiceLineItmes{
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.ServiceLineItmes tbody tr td,
+.ServiceLineItmes  thead tr th{
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.ServiceLineItmes  thead tr th{
+    padding-bottom: 10px;
+}
+
+.ServiceLineItmes tbody tr td:nth-child(2) div:first-child{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ServiceLineItmes tbody tr td:nth-child(2) div:nth-child(2){
+    cursor: pointer;
+}
+
+.ServiceLineItmes tbody tr td:nth-child(2) input{
+    margin-right: 10px;
+}
+
+.TotalAmount{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 24px;
+    text-align: right;
+    color: var(--color-text);
+    margin: 70px 0;
+    text-transform: capitalize;
+}

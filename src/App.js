@@ -6,6 +6,8 @@ import Profile from './Containers/Profile/Profile';
 import Dashboard from './Containers/Dashboard/Dashboard';
 import Pincode from './Containers/Pincode/Pincode';
 import Settings from './Containers/Settings/Settings';
+import InvoiceView from './Containers/Invoice/Invoice';
+import CreateInvoice from './Containers/Create/CreateInvoice';
 
 import AdminWrapper from './HOC/Wrapper/Wrapper';
 
@@ -23,6 +25,8 @@ function App() {
         <Route path="/pincode" component={Pincode} />
         <Route path="/settings" component={Settings} />
         <Route path="/profile" component={Profile} />
+        <Route path="/create/invoice" component={CreateInvoice} />
+        <Route path="/invoice/view" component={InvoiceView} />
         <Route path="**" component={Login} />
       </Switch>
       </AuthProvider>

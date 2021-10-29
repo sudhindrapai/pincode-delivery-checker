@@ -3,21 +3,21 @@
         {
             "name":"Dashboard",
             "redirectionLink":"/dashboard",
-            "iconName": "CgSignal",
+            "iconName": "AiOutlineDashboard",
             "position":1,
             "isVisible":true
         },
         {
             "name":"Invoce List",
-            "redirectionLink":"/profile",
-            "iconName": "AiOutlineTag",
+            "redirectionLink":"/invoice/list",
+            "iconName": "FiDatabase",
             "position":1,
             "isVisible":true
         },
         {
             "name":"Create Invoice",
             "redirectionLink":"/create/invoice",
-            "iconName": "AiOutlineTag",
+            "iconName": "FiEdit2",
             "position":1,
             "isVisible":true
         }

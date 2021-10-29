@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getStorage, ref } from "firebase/storage";
+import { getDatabase, ref} from "firebase/database";
+
 
 
 
@@ -39,9 +40,8 @@ import { getStorage, ref } from "firebase/storage";
   export const auth = getAuth(app);
 
   //  storage ref goes here
-  export const storage = getStorage(app);
-  export const storageRef = ref(storage);
-  export const imagesRef = ref(storageRef, 'images');
-
+  export const database = getDatabase(app);
+  export const getInvoiceDbRef = ref(database, 'invoice/'); 
+  export const createInvoiceDbRef = ref(database, 'invoice/');
 
   export default app

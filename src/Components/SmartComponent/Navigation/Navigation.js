@@ -1,4 +1,4 @@
-import {useMemo} from 'react'
+import {useMemo, memo} from 'react'
 import classes from './Navigation.module.css';
 import { NavLink} from 'react-router-dom'
 
@@ -12,7 +12,7 @@ const Navigation = () => {
     
     let menuOptions = null;
 
-    // useMemo(() => {
+    useMemo(() => {
         menuOptions = responseArray.map((menuOption, index) => {
             return <div key={`menuItem_${index}`} className={classes.MenuItem}>
                 {iconsObj[menuOption.iconName]}
@@ -21,7 +21,7 @@ const Navigation = () => {
                 </NavLink>
             </div>
         });
-    // },[responseArray.length > 0])
+    },[responseArray.length > 0])
 
     return <nav className={classes.NavSection}>
         <img src="https://dummyimage.com/200x120/000/fff" />
@@ -29,4 +29,4 @@ const Navigation = () => {
         </nav>
 }
 
-export default Navigation
+export default memo(Navigation)

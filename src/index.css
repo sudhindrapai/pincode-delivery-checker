@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background-color: var(--color-body);
 }
 
 code {
@@ -13,8 +15,10 @@ code {
 }
 
 :root{
+  --color-body: #ffffff;
   --color-text: #000000;
   --color-border: #cccccc;
   --color-error: #FB2629;
   --color-warning: #ff9966;
+  --color-InvoiceBorder: #000000
 }

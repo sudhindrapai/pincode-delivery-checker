@@ -6,6 +6,9 @@
     padding: 10px 20px;
     cursor: pointer;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .MenuItem a{
@@ -36,5 +39,11 @@
 .SelectedNav{
     color: #4ac2a2 !important;
     font-weight: 700;
+}
+
+.MenuItem svg{
+    height: 20px;
+    width: 18px;
+    margin-right: 8px;
 }
 

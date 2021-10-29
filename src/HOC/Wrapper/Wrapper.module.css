@@ -10,14 +10,19 @@
 .TopMenu{
     height: 50px;
     width: 100%;
+    box-sizing: border-box;
     border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
 }
 
 .Navigation{
     display: flex;
     flex-basis: 20%;
     background-color: white;
-    height: calc(100vh - 0px);
+    height: 100vh;
     box-shadow: 0 0 12px rgb(0 0 0 / 16%);
 }
 .BodyContents{
@@ -29,4 +34,23 @@
     width: 100%;
     box-sizing: border-box;
     padding: 30px 15px 30px 50px;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+}
+
+.EmptyBodySection{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 15px 30px 50px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+@media  Print {
+    .BodySection{
+        padding: 10px;
+    } 
+    .BodySection, .EmptyBodySection{
+        height: unset;
+    }
 }

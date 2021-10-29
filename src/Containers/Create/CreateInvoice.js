@@ -1,10 +1,15 @@
 import classes from './CreateInvoice.module.css';
 import {useReducer} from 'react'
-
+import {useHistory} from 'react-router-dom';
 import {nameValidation, addressValidation, validateEmail} from '../../Utilities/Utilities';
 import Components from '../../Components/ComponentIndex/ComponentIndex';
-import Icons from '../../ProjectIcons'
+import Icons from '../../ProjectIcons';
+import * as localstorageActions from '../../LocalStorage/LocalStorageActions';
+import {setLocalStorage} from '../../LocalStorage/SetLocalStorage';
 
+
+import { push } from "firebase/database";
+import {createInvoiceDbRef} from '../../firebasebase';
 
 const invoiceState = {
     customerName:"",
@@ -14,9 +19,25 @@ const invoiceState = {
     statusCode: 1,
     mobileNo:"",
     totalAmount:0,
+    selectedPayment:"CASH",
+    modeOfPayment:[
+        {
+            paymentType:"CASH",
+            isSelected: true
+        },
+        {
+            paymentType:"ONLINE",
+            isSelected: false
+        }
+    ],
+    deviceName:"",
+    deviceError:"",
     billLineItems:[
         {
             serviceName:"",
+            qty:1,
+            rate:100,
+            per:1,
             amount:0,
             isDeleted: false,
             key:0
@@ -37,28 +58,40 @@ const setInvoiceState = (state = invoiceState, action) => {
                     billLineItems: action.value,
                     totalAmount: action.sum
                 }
-                case 'SET_CUSTOMER_ADDRESS':
-                    return{
+            case 'SET_CUSTOMER_ADDRESS':
+                return{
                         ...state,
                         address: action.value
                     }
-                    case 'SET_EMAIL_ID':
+            case 'SET_EMAIL_ID':
                         return {
                             ...state,
                             email: action.value,
                             emailError: action.errorMessage,
                             statusCode: action.statusCode
                         }
-                        case 'SET_MOBILE_NO':
-                            return{
+                case 'SET_MOBILE_NO':
+                    return{
                                 ...state,
                                 mobileNo: action.value
                             }
+                case 'SET_PAYMENT_METHOD':
+                                return{
+                                    ...state,
+                                    selectedPayment: action.value
+                                }
+                                case 'SET_DEVICE_NAME':
+                                    return{
+                                        ...state,
+                                        deviceName:action.value,
+    deviceError:action.value.length === 0 ? "device name should not be empty": "",
+                                    }
+
     }
 }
 
-const CreateInvoce = (props) => {
-
+const CreateInvoce = () => {
+    const history = useHistory();
     const [formValue, setFormValue] = useReducer(setInvoiceState, invoiceState)
 
     const Button = Components["Button"];
@@ -96,7 +129,6 @@ const CreateInvoce = (props) => {
     }
 
     const setEmailAddress = (event) => {
-
         //   status 1 -> no error, 2-> warning 3-> error
         let errorMessage = "";
         let statusCode = 1;
@@ -119,6 +151,20 @@ const CreateInvoce = (props) => {
             })
     }
 
+    const setPaymentMode = (event) => {
+        setFormValue({
+            type:'SET_PAYMENT_METHOD',
+            value: event.target.value
+        })
+    };
+
+    const setDeviceName = (event) => {
+        setFormValue({
+            type:'SET_DEVICE_NAME',
+            value: event.target.value
+        })
+    }
+
     // end function to set form reducers
 
     // function to create new lineitem
@@ -126,6 +172,9 @@ const CreateInvoce = (props) => {
         let updatedArray = formValue.billLineItems;
         let emptyObj =  {
                     serviceName:"",
+                    qty:1,
+                    rate:100,
+                    per:1,
                     amount:0,
                     isDeleted: false,
                     key: formValue.billLineItems.length
@@ -169,7 +218,7 @@ const CreateInvoce = (props) => {
         setLineItemArry(updatedValue);
     }
 
-
+    // function to create line iteam total sum
     const calculateSum = () => {
         let sum = 0;
         if (formValue.billLineItems.length > 0) {
@@ -187,7 +236,7 @@ const CreateInvoce = (props) => {
         return sum
     }
 
-
+    //  function to create lineitem view
     let lineItemsView = formValue.billLineItems.map((lineItem, index) => {
 
         return <tr key={`lineItem_${index}`}>
@@ -209,6 +258,36 @@ const CreateInvoce = (props) => {
             </tr>
         
     });
+
+    // function to store bill details locally and redirectos to view part
+    const createInvoice = () => {
+
+        let customerName = formValue.customerName,
+        address = formValue.address,
+        email = formValue.email,
+        mobile= formValue.mobileNo,
+        totalAmount =  formValue.totalAmount,
+        selectedPayment = formValue.selectedPayment,
+        deviceName = formValue.deviceName,
+        billLineItems = formValue.billLineItems;
+
+        let invoiceObj = {}
+        invoiceObj["customerName"] = customerName;
+        invoiceObj["address"] = address;
+        invoiceObj["email"] = email;
+        invoiceObj["mobile"] = mobile;
+        invoiceObj["totalAmount"] = totalAmount;
+        invoiceObj["selectedPayment"] = selectedPayment;
+        invoiceObj["deviceName"] = deviceName;
+        invoiceObj["billLineItems"] = billLineItems;
+
+        setLocalStorage(localstorageActions.SET_INVOICE_DETAILS, JSON.stringify(invoiceObj));
+
+        // below push condition is to create invoice obj
+        push(createInvoiceDbRef, invoiceObj);
+        history.push("/invoice/list")
+    }
+
 
     return <div className={classes.Container}>
         <div className={classes.FormContainer}>
@@ -247,7 +326,31 @@ const CreateInvoce = (props) => {
                 }} className={classes.BillInput} />
             </div>
             </div>
-            
+            <div className={classes.TwoInputs}>
+            <div className={classes.FormGroup}>
+                <label htmlFor={"customerName"}>
+                    Payment Type
+                </label>
+                <select className={classes.BillInput} value={formValue.selectedPayment} onChange={(event) => {setPaymentMode(event)}}>
+                {formValue.modeOfPayment.map((paymentMethod) => {
+                    return <option value={paymentMethod.paymentType} >{paymentMethod.paymentType}</option>
+                })}
+                </select>
+            </div>
+            <div className={classes.FormGroup}>
+                <label htmlFor={"customerName"}>
+                    Device
+                </label>
+                <input type={"text"} id={"customerName"} 
+                value={formValue.deviceName}
+                onChange={(event) => {
+                    setDeviceName(event);
+                }} className={classes.BillInput} />
+                <span className={[classes.Error, classes.ColRed].join(" ")} >
+                    {formValue.deviceError}
+                    </span>
+            </div>
+            </div>
             <div className={classes.FormGroup}>
                 <label>
                     Address
@@ -258,7 +361,7 @@ const CreateInvoce = (props) => {
             </div>
             <div className={classes.FormGroup}>
                 <div>
-                    <Button BtnSize={"BtnMd"} BtnClassName={"BtnPrimary"} Clicked={createNewServiceLineItem}>
+                    <Button BtnSize={"BtnMd"} BtnClassName={"BtnPrimary"} clicked={createNewServiceLineItem}>
                         Add Service Line Item
                     </Button>
                 </div>
@@ -281,6 +384,9 @@ const CreateInvoce = (props) => {
             <div className={classes.TotalAmount}>
                 total: {formValue.totalAmount}
             </div>
+            <Button BtnSize={"BtnMd"} BtnClassName={"BtnPrimary"} clicked={createInvoice}>
+                        Create Invoice
+                    </Button>
             </div>
     </div>
 };

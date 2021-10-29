@@ -29,7 +29,7 @@ const AdminWrapper = (IncomingComponent) => {
                 </div>
                </Fragment>
             } else {
-                return <div className={classes.BodySection}>
+                return <div className={classes.EmptyBodySection}>
                 <IncomingComponent />
                 </div>
             }

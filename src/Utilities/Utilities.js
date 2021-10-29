@@ -44,6 +44,19 @@ export const validateEmail = (value) => {
     return pattern.test(value)
 }
 
+export const getCurrentDate = () => {
+    let date = new Date();
+    return `${addPddingZero(date.getDate())}-${addPddingZero(date.getMonth() + 1)}-${date.getFullYear()}`;
+}
+
+const addPddingZero = (value) => {
+    if (value !== undefined && value !== null) {
+        let updatedNumber = parseInt(value,10);
+        return updatedNumber < 10 ? `0${value}` : value;
+    }
+    return value;
+}
+
 // security validations
 
 const securityValidation = (character) => {

@@ -29,7 +29,7 @@ const Login = () => {
 
     return <div className={classes.Container}>
       <div>Sign in</div>
-      <div>{JSON.stringify(currentUser)}</div>
+      <div style={{display:"none"}}>{JSON.stringify(currentUser)}</div>
       <div>
         <div className={classes.FormGroup}>
           <label htmlFor={"user email id"}>
@@ -47,7 +47,7 @@ const Login = () => {
             setPassword(event.target.value)
           }} />
         </div>
-        <Button BtnSize={"BtnMd"} Clicked={onSignInClick}>
+        <Button BtnSize={"BtnMd"} BtnClassName={"BtnPrimary"} clicked={onSignInClick}>
           Sign In
         </Button>
       </div>

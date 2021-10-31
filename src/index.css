@@ -16,6 +16,7 @@ code {
 
 :root{
   --color-body: #ffffff;
+  --color-white: #ffffff;
   --color-text: #000000;
   --color-border: #cccccc;
   --color-error: #FB2629;

@@ -14,8 +14,8 @@
     border-bottom: 1px solid #ccc;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 20px;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .Navigation{
@@ -24,9 +24,18 @@
     background-color: white;
     height: 100vh;
     box-shadow: 0 0 12px rgb(0 0 0 / 16%);
+    z-index: 101;
+
+    
+    
+    transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+    transition: transform .2s ease-out,-webkit-transform .2s ease-out;
+    height: 100%;
+    box-shadow: 0 8px 10px 0 rgb(183 192 206 / 20%);
 }
 .BodyContents{
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
 }
 
@@ -46,11 +55,36 @@
     overflow-y: scroll;
 }
 
+.Open{
+    transform: translateX(0);
+}
+
+
+.Close{
+    transform: translateX(-100%);
+}
+
 @media  Print {
     .BodySection{
         padding: 10px;
     } 
     .BodySection, .EmptyBodySection{
         height: unset;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .BodyContents{
+        width: 100%;
+        box-sizing: border-box;
+       
+    }
+    .BodySection, .EmptyBodySection{
+        padding: 10px;
+    }
+    .Navigation{
+        position: fixed;
+        top: 0;
+        left: 0;
     }
 }

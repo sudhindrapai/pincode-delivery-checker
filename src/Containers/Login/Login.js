@@ -28,9 +28,9 @@ const Login = () => {
   },[signinStatus, isRequestSent])
 
     return <div className={classes.Container}>
-      <div>Sign in</div>
+      <div className={classes.SiginInContainer}>
+      <div className={classes.SignInTitle}>Sign in</div>
       <div style={{display:"none"}}>{JSON.stringify(currentUser)}</div>
-      <div>
         <div className={classes.FormGroup}>
           <label htmlFor={"user email id"}>
             Email Id

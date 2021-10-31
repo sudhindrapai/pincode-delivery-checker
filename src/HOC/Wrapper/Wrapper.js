@@ -10,7 +10,8 @@ const AdminWrapper = (IncomingComponent) => {
     class NewComponent extends Component{
 
         // add route name in the below array to avoid header nav and side bar
-        restrictedRoutes = ["/invoice/view","/login"];
+        restrictedRoutes = ["/invoice/view","/login", "/"];
+        
 
         render() {
             // if condition to check current route present in the restrected route and returns respective view

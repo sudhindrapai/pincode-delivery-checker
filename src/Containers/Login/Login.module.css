@@ -1,0 +1,51 @@
+.Container{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+}
+
+.SiginInContainer{
+    max-width: 50vw;
+    height: auto;
+    box-sizing: border-box;
+    border: 1px solid var(--color-border);
+    padding: 40px 50px;
+    width: 30vw;
+    border-radius: 4px;
+}
+.SignInTitle{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--color-text);
+}
+
+.SiginInContainer button{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.FormGroup{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.FormGroup label{
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+
+.FormGroup input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    border: 1px solid var(--color-border);
+}

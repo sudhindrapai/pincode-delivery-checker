@@ -1,6 +1,7 @@
 {
   "short_name": "React App",
   "name": "Create React App Sample",
+  "description":"this is the test manifest",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,6 +20,7 @@
     }
   ],
   "start_url": ".",
+  "scope":"/login",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

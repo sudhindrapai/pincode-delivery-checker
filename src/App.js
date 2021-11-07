@@ -2,7 +2,6 @@ import './App.css';
 import {Switch, Route} from 'react-router-dom';
 
 import Login from './Containers/Login/Login'
-import Profile from './Containers/Profile/Profile';
 import Dashboard from './Containers/Dashboard/Dashboard';
 import Settings from './Containers/Settings/Settings';
 import InvoiceView from './Containers/Invoice/Invoice';
@@ -32,5 +31,6 @@ function App() {
     </div>
   );
 }
+
 
 export default AdminWrapper(App);

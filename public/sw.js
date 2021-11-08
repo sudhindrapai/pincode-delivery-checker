@@ -4,5 +4,11 @@ self.addEventListener('install',function (event) {
 
 self.addEventListener('activate',function (event) {
     console.log("service worker in activated .....",event);
-    return self.cliens.claim();
-})
+    // return self.cliens.claim();
+});
+
+self.addEventListener('fetch',function (event) {
+    console.log("featching something...", event);
+    event.respondWith(fetch(event.request));
+});
+

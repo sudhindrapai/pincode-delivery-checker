@@ -87,7 +87,7 @@ const InvoiceTemplate = () => {
     <div className={classes.InvoiceContainer}>
     <div className={classes.HeaderSection}>
         <div className={classes.Logo}>
-            <img src="https://dummyimage.com/200x120/000/fff" />
+            <img src="https://dummyimage.com/200x120/000/fff" alt="invoce company name" />
         </div>
     </div>
     <div className={classes.AddressSection}>

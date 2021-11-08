@@ -86,6 +86,8 @@ const setInvoiceState = (state = invoiceState, action) => {
                                         deviceName:action.value,
     deviceError:action.value.length === 0 ? "device name should not be empty": "",
                                     }
+                                    default:
+                                        return state
 
     }
 }
@@ -229,7 +231,7 @@ const CreateInvoce = () => {
         }
 
         function addSum(count) {
-            if (count !== NaN) {
+            if (!isNaN(count)) {
                 sum += parseInt(Math.ceil(count));
             }
         }

@@ -26,6 +26,7 @@
     -->
     <title>React App</title>
     <script type="text/javascript">
+    var deferredPrompt;
     if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js')
   .then(() => {
@@ -33,7 +34,18 @@
   })
   .catch((error) => {
     console.log(error,"service worker error")
-  })
+  });
+
+
+  window.addEventListener('beforeinstallprompt',function (event) {
+    console.log("beforeinstallprompt fired", event);
+    // event.preventDefault();
+    deferredPrompt = event;
+    return false;
+});
+
+} else {
+  console.log("Service worker is not present")
 }
     </script>
   </head>

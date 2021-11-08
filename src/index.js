@@ -7,9 +7,18 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 
 // for redux middleware thunk
-import {Provider} from 'react-redux'
-import {combineReducers, createStore, compose, applyMiddleware} from "redux";
-import thunk from 'redux-thunk';
+// import {Provider} from 'react-redux'
+// import {combineReducers, createStore, compose, applyMiddleware} from "redux";
+// import thunk from 'redux-thunk';
+
+var deferredPrompt;
+
+window.addEventListener('beforeinstallprompt',function (event) {
+  console.log("beforeinstallprompt fired", event);
+  // event.preventDefault();
+  deferredPrompt = event;
+  return false;
+});
 
 ReactDOM.render(
   <BrowserRouter>

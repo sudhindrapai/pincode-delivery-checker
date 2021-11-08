@@ -19,13 +19,19 @@ const Login = () => {
     login(email,password);
   };
 
+  const moveToDashboard = () => {
+    history.push("/dashboard");
+  }
+
   useEffect(() => {
     if (signinStatus && isRequestSent){
-      history.push("/dashboard");
+      moveToDashboard();
     } else if (isRequestSent === true && signinStatus === false) {
       console.log("login failed");
     };
-  },[signinStatus, isRequestSent])
+  },[signinStatus, isRequestSent]);
+
+  
 
     return <div className={classes.Container}>
       <div className={classes.SiginInContainer}>
